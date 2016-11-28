@@ -9,13 +9,10 @@
 
 defined('_JEXEC') or die;
 
-$logintext = htmlspecialchars($params->get('logintext', 'Log in'));
+$logintext  = htmlspecialchars($params->get('logintext', 'Log in'));
 $logouttext = htmlspecialchars($params->get('logouttext', 'Log out'));
-$linkclass = htmlspecialchars($params->get('linkclass'));
-
-if ($linkclass != '') :
-	$linkclass = ' class="' . $linkclass . '"';
-endif;
+$linkclass  = htmlspecialchars($params->get('linkclass', ''));
+$linkclass  = isset($linkclass) ? ' class="' . $linkclass . '"' : '';
 
 $user = JFactory::getUser();
 $userToken = JSession::getFormToken();
